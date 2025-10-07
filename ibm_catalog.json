@@ -1,0 +1,140 @@
+{
+  "products": [
+    {
+      "label": "PowerVS Secure Workspace",
+      "name": "powervs-secure-workspace",
+      "version": "1.0.0",
+      "product_kind": "solution",
+      "tags": [
+        "ibm_created",
+        "infra_only",
+        "converged_infra",
+        "powervs",
+        "security",
+        "governance"
+      ],
+      "keywords": [
+        "powervs",
+        "vpc",
+        "monitoring",
+        "scc",
+        "activity-tracker",
+        "workspace"
+      ],
+      "short_description": "Deploy a secure PowerVS workspace in São Paulo region with SCC, Activity Tracker, and Cloud Monitoring enabled by default.",
+      "long_description": "This deployable architecture creates a secure and governed PowerVS workspace in the São Paulo (br-sao) region. It enforces IBM Cloud Monitoring, Activity Tracker, and Security & Compliance Center (SCC) to be enabled by default, with public network access disabled. SSH access is managed through a provided public key.",
+      "offering_icon_url": "data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDA3YmZjIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0NSIvPjwvc3ZnPg==",
+      "offering_docs_url": "https://cloud.ibm.com/docs/powervs",
+      "features": [
+        {
+          "name": "region-fixed",
+          "display_name": "Region locked to São Paulo",
+          "description": "All resources are deployed in the br-sao region to maintain data residency and governance."
+        },
+        {
+          "name": "security-defaults",
+          "display_name": "Security controls enabled by default",
+          "description": "SCC, Activity Tracker, and Cloud Monitoring are provisioned and configured automatically."
+        },
+        {
+          "name": "no-public-network",
+          "display_name": "Public network disabled",
+          "description": "Public subnet access is disabled to enforce a private deployment model."
+        }
+      ],
+      "flavors": [
+        {
+          "name": "standard",
+          "display_name": "Standard Secure Workspace",
+          "description": "Deploy a PowerVS secure workspace with compliance and monitoring controls enabled by default.",
+          "architecture": {
+            "diagram": {
+              "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/refs/tags/v9.0.0/reference-architectures/standard-plus-vsi/deploy-arch-ibm-pvs-inf-standard-plus-vsi.svg"
+            }
+          },
+          "configuration": [
+            {
+              "key": "pi_workspace_name",
+              "display_name": "Workspace Name",
+              "type": "string",
+              "required": true,
+              "default": "powervs-secure-workspace",
+              "description": "Unique name for the PowerVS workspace."
+            },
+            {
+              "key": "pi_resource_group_name",
+              "display_name": "Resource Group Name",
+              "type": "string",
+              "required": true,
+              "custom_config": {
+                "type": "resource_group"
+              },
+              "description": "IBM Cloud resource group where all resources will be deployed."
+            },
+            {
+              "key": "pi_zone",
+              "display_name": "PowerVS Zone",
+              "type": "string",
+              "required": true,
+              "options": [
+                { "name": "São Paulo 1", "value": "sao01" },
+                { "name": "São Paulo 2", "value": "sao02" },
+                { "name": "São Paulo 3", "value": "sao03" }
+              ],
+              "default": "sao01",
+              "description": "Select the zone inside São Paulo region where the PowerVS workspace will be deployed."
+            },
+            {
+              "key": "pi_tags",
+              "display_name": "Tags",
+              "type": "list(string)",
+              "required": false,
+              "default": ["managed-by=iac"],
+              "description": "Tags applied to all created resources. Default includes managed-by=iac."
+            },
+            {
+              "key": "pi_ssh_public_key",
+              "display_name": "SSH Public Key",
+              "type": "string",
+              "required": true,
+              "multiline": true,
+              "description": "Public SSH key used for accessing compute instances."
+            },
+            {
+              "key": "pi_public_subnet_enable",
+              "display_name": "Enable Public Subnet",
+              "type": "boolean",
+              "default": false,
+              "required": true,
+              "description": "Public network access is disabled by default for security reasons."
+            },
+            {
+              "key": "enable_cloud_monitoring",
+              "display_name": "Enable Cloud Monitoring",
+              "type": "boolean",
+              "default": true,
+              "required": true,
+              "description": "IBM Cloud Monitoring will be automatically deployed and connected."
+            },
+            {
+              "key": "enable_activity_tracker",
+              "display_name": "Enable Activity Tracker",
+              "type": "boolean",
+              "default": true,
+              "required": true,
+              "description": "IBM Cloud Activity Tracker will be automatically deployed and configured."
+            },
+            {
+              "key": "enable_scc",
+              "display_name": "Enable Security and Compliance Center (SCC)",
+              "type": "boolean",
+              "default": true,
+              "required": true,
+              "description": "Security and Compliance Center (SCC) will be automatically activated for compliance monitoring."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
