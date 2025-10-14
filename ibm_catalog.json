@@ -76,11 +76,6 @@
               "display_name": "PowerVS Zone",
               "type": "string",
               "required": true,
-              "options": [
-                { "name": "São Paulo 1", "value": "sao01" },
-                { "name": "São Paulo 2", "value": "sao02" },
-                { "name": "São Paulo 3", "value": "sao03" }
-              ],
               "default": "sao01",
               "description": "Select the zone inside São Paulo region where the PowerVS workspace will be deployed."
             },
