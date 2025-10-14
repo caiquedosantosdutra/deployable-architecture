@@ -12,6 +12,8 @@ variable "pi_zone" {
 variable "pi_resource_group_name" {
   type        = string
   description = "Nome do Resource Group existente"
+  default     = "Default"
+
 }
 
 variable "pi_ssh_public_key" {

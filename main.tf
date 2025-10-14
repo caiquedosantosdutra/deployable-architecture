@@ -7,3 +7,7 @@ module "powervs-workspace" {
   pi_ssh_public_key = var.pi_ssh_public_key
   pi_public_subnet_enable = false
 }
+
+data "ibm_resource_group" "resource_group_ds" {
+  name = var.pi_resource_group_name
+}
