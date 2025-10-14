@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    ibm = {
+      source  = "ibm-cloud/ibm"
+      version = ">= 1.81.0"
+    }
+    time = {
+      source  = "hashicorp/time"
+      version = ">= 0.9.1"
+    }
+  }
+}
+
 module "powervs-workspace" {
   source  = "terraform-ibm-modules/powervs-workspace/ibm"
   version = "3.2.1"
