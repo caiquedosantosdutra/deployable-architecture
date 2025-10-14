@@ -95,10 +95,14 @@
             {
               "key": "pi_ssh_public_key",
               "display_name": "SSH Public Key",
-              "type": "string",
+              "type": "object",
               "required": true,
               "multiline": true,
-              "description": "Public SSH key used for accessing compute instances."
+              "description": "Public SSH key used for accessing compute instances.",
+              "default_value": {
+                "name": "my-key",
+                "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy..."
+              }
             },
             {
               "key": "pi_public_subnet_enable",

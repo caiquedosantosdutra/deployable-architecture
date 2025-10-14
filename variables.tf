@@ -15,7 +15,10 @@ variable "pi_resource_group_name" {
 }
 
 variable "pi_ssh_public_key" {
-  type        = string
+  type        =  object ({
+    name       = string
+    public_key = string
+  })
   description = "Chave pública SSH"
   sensitive   = true
 }
