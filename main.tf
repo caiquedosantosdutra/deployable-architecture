@@ -12,7 +12,7 @@ terraform {
 }
 
 provider "ibm" {
-  region = "sao01"   # exemplo: "sao01" ou "us-south"
+  region = "sao"   # exemplo: "sao01" ou "us-south"
   zone   = var.pi_zone     # exemplo: "sao01-1"
 }
 
@@ -30,3 +30,5 @@ module "powervs-workspace" {
 data "ibm_resource_group" "resource_group_ds" {
   name = var.pi_resource_group_name
 }
+
+
