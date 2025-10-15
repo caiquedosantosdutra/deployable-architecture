@@ -14,6 +14,7 @@ terraform {
 provider "ibm" {
   region = "sao"   # exemplo: "sao01" ou "us-south"
   zone   = var.pi_zone     # exemplo: "sao01-1"
+  ibmcloud_api_key = var.ibmcloud_api_key
 }
 
 
