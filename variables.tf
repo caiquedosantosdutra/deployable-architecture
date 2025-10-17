@@ -14,7 +14,7 @@ variable "ibmcloud_api_key" {
   description = "Zona PowerVS (use sao01)"
   default     = "sao01"
 }
-variable "pi_resource_group_name" {
+variable "pi_resource_group_id" {
   type        = string
   description = "Nome do Resource Group existente"
   default     = "Default"

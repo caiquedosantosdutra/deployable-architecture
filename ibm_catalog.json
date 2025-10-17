@@ -62,13 +62,10 @@
               "description": "Unique name for the PowerVS workspace."
             },
             {
-              "key": "pi_resource_group_name",
-              "display_name": "Resource Group Name",
-              "type": "string",
+              "key": "pi_resource_group_id",
+              "display_name": "Resource Group Id",
+              "type": "resource group",
               "required": true,
-              "custom_config": {
-                "type": "resource_group"
-              },
               "description": "IBM Cloud resource group where all resources will be deployed."
             },
             {
@@ -120,7 +117,7 @@
               "default": true,
               "required": true,
               "description": "IBM Cloud Monitoring will be automatically deployed and connected."
-            },
+            }, 
             {
               "key": "enable_activity_tracker",
               "display_name": "Enable Activity Tracker",
